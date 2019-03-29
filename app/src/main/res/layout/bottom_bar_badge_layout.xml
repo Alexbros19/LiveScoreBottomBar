@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/bottomItemBadgetMargin">
+
+    <TextView
+        android:id="@+id/notificationsBadgeTextView"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/bottom_bar_item_badget"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+</FrameLayout>

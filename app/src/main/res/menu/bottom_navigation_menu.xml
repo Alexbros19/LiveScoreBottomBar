@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_scores"
+        android:icon="@drawable/icon_android"
+        android:title="@string/string_scores"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_live"
+        android:icon="@drawable/icon_android"
+        android:title="@string/string_live"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/icon_android"
+        android:title="@string/string_favorites"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/nav_menu"
+        android:icon="@drawable/icon_android"
+        android:title="@string/string_menu"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_news"
+        android:icon="@drawable/icon_android"
+        android:title="@string/string_news"
+        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/nav_refresh"-->
+        <!--android:icon="@drawable/icon_android"-->
+        <!--android:title="@string/string_refresh"-->
+        <!--app:showAsAction="ifRoom" />-->
+</menu>

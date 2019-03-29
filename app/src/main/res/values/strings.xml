@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LiveScoreBottomBar</string>
+    <string name="string_scores">Scores</string>
+    <string name="string_live">Live</string>
+    <string name="string_favorites">Favorites</string>
+    <string name="string_menu">Menu</string>
+    <string name="string_news">News</string>
+    <string name="string_refresh">Refresh</string>
+</resources>
