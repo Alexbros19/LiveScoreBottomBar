@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.livescorebottombar.menu.BottomMenuHelper;
+import com.example.livescorebottombar.navigation.NavigationController;
 import com.example.livescorebottombar.navigation.NavigationItems;
+import com.example.livescorebottombar.navigation.items.LiveNavigationItem;
+import com.example.livescorebottombar.navigation.items.ScoresNavigationItem;
 
 public class MainActivity extends AppCompatActivity implements BottomMenuHelper.OnNavigationItemSelectedListener {
     public static int currentNavigationViewId = NavigationItems.SCORES;
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
     private Button showBadgeButton;
     private Button showHockeyBottomBarButton;
     private boolean isBadgeVisible = false;
+    private NavigationController navigationController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,14 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
             public void onClick(View v) {
             }
         });
+
+        navigationController = new NavigationController(this, R.id.content_frame);
+
+        navigationController.addRootItem(new ScoresNavigationItem(), NavigationItems.SCORES);
+        navigationController.addRootItem(new LiveNavigationItem(), NavigationItems.LIVE);
+//        navigationController.addRootItem(new VideosNavigationItem(), NavigationItems.FAVORITES);
+//        navigationController.addRootItem(new TvScheduleNavigationItem(), NavigationItems.MENU);
+//        navigationController.addRootItem(new LeaguesNavigationItem(), NavigationItems.NEWS);
     }
 
     @Override
@@ -60,5 +72,15 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
 
     @Override
     public void onNavigationItemSelected(int navigationId) {
+        displayView(navigationId);
+    }
+
+    private void displayView(int navigationId) {
+        try {
+            navigationController.activateItem(navigationId);
+            currentNavigationViewId = navigationId;
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
     }
 }

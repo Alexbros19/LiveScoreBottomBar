@@ -28,6 +28,16 @@ public class BottomMenuHelper implements BottomNavigationView.OnNavigationItemSe
         this.bottomBar = bottomBar;
         bottomBar.setVisibility(View.VISIBLE);
         bottomBar.setOnNavigationItemSelectedListener(this);
+//        addScoresItems();
+    }
+
+    private void addScoresItems() {
+        Menu menu = bottomBar.getMenu();
+        menu.add(Menu.NONE, NavigationItems.SCORES, Menu.NONE, R.string.string_scores).setIcon(R.drawable.icon_android);
+        menu.add(Menu.NONE, NavigationItems.LIVE, Menu.NONE, R.string.string_live).setIcon(R.drawable.icon_android);
+        menu.add(Menu.NONE, NavigationItems.FAVORITES, Menu.NONE, R.string.string_favorites).setIcon(R.drawable.icon_android);
+        menu.add(Menu.NONE, NavigationItems.MENU, Menu.NONE, R.string.string_menu).setIcon(R.drawable.icon_android);
+        menu.add(Menu.NONE, NavigationItems.NEWS, Menu.NONE, R.string.string_news).setIcon(R.drawable.icon_android);
     }
 
     public void setNavigationItemSelectedListener(OnNavigationItemSelectedListener listener) {
