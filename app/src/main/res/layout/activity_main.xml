@@ -4,17 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/showBadgeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:text="Show badge" />
+
+    <Button
+        android:id="@+id/showHockeyBottomBarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/showBadgeButton"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:text="Show hockey" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:labelVisibilityMode="labeled"
         app:itemBackground="@android:color/black"
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/scores_navigation_menu" />
 
 </RelativeLayout>

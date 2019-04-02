@@ -5,36 +5,41 @@
 
     <item
         android:id="@+id/nav_scores"
-        android:icon="@drawable/icon_android"
+        android:icon="@drawable/icon_man"
         android:title="@string/string_scores"
+        android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/nav_live"
-        android:icon="@drawable/icon_android"
+        android:icon="@drawable/icon_man"
         android:title="@string/string_live"
+        android:enabled="true"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/nav_favorites"
-        android:icon="@drawable/icon_android"
+        android:icon="@drawable/icon_man"
         android:title="@string/string_favorites"
+        android:enabled="true"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/nav_menu"
-        android:icon="@drawable/icon_android"
+        android:icon="@drawable/icon_man"
         android:title="@string/string_menu"
+        android:enabled="true"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/nav_news"
-        android:icon="@drawable/icon_android"
-        android:title="@string/string_news"
-        app:showAsAction="ifRoom" />
     <!--<item-->
-        <!--android:id="@+id/nav_refresh"-->
+        <!--android:id="@+id/nav_news"-->
         <!--android:icon="@drawable/icon_android"-->
-        <!--android:title="@string/string_refresh"-->
+        <!--android:title="@string/string_news"-->
+        <!--android:enabled="true"-->
         <!--app:showAsAction="ifRoom" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_refresh"-->
+    <!--android:icon="@drawable/icon_android"-->
+    <!--android:title="@string/string_refresh"-->
+    <!--app:showAsAction="ifRoom" />-->
 </menu>
