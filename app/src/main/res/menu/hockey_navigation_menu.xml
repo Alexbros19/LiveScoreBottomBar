@@ -4,28 +4,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/nav_scores"
+        android:id="@+id/nav_scores_soccer"
         android:icon="@drawable/icon_man"
         android:title="@string/string_scores"
         android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/nav_live"
+        android:id="@+id/nav_live_soccer"
         android:icon="@drawable/icon_man"
         android:title="@string/string_live"
         android:enabled="true"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/nav_favorites"
+        android:id="@+id/nav_favorites_soccer"
         android:icon="@drawable/icon_man"
         android:title="@string/string_favorites"
         android:enabled="true"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/nav_menu"
+        android:id="@+id/nav_menu_soccer"
         android:icon="@drawable/icon_man"
         android:title="@string/string_menu"
         android:enabled="true"

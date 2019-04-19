@@ -7,7 +7,7 @@
     android:fitsSystemWindows="false">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/score_list_toolbar"
+        android:id="@+id/soccer_live_toolbar"
         style="@style/Toolbar"/>
 
 </android.support.design.widget.CoordinatorLayout>

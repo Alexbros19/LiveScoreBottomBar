@@ -31,14 +31,14 @@ public class BottomMenuHelper implements BottomNavigationView.OnNavigationItemSe
 //        addScoresItems();
     }
 
-    private void addScoresItems() {
-        Menu menu = bottomBar.getMenu();
-        menu.add(Menu.NONE, NavigationItems.SCORES, Menu.NONE, R.string.string_scores).setIcon(R.drawable.icon_android);
-        menu.add(Menu.NONE, NavigationItems.LIVE, Menu.NONE, R.string.string_live).setIcon(R.drawable.icon_android);
-        menu.add(Menu.NONE, NavigationItems.FAVORITES, Menu.NONE, R.string.string_favorites).setIcon(R.drawable.icon_android);
-        menu.add(Menu.NONE, NavigationItems.MENU, Menu.NONE, R.string.string_menu).setIcon(R.drawable.icon_android);
-        menu.add(Menu.NONE, NavigationItems.NEWS, Menu.NONE, R.string.string_news).setIcon(R.drawable.icon_android);
-    }
+//    private void addScoresItems() {
+//        Menu menu = bottomBar.getMenu();
+//        menu.add(Menu.NONE, NavigationItems.SCORES, Menu.NONE, R.string.string_scores).setIcon(R.drawable.icon_android);
+//        menu.add(Menu.NONE, NavigationItems.LIVE, Menu.NONE, R.string.string_live).setIcon(R.drawable.icon_android);
+//        menu.add(Menu.NONE, NavigationItems.FAVORITES, Menu.NONE, R.string.string_favorites).setIcon(R.drawable.icon_android);
+//        menu.add(Menu.NONE, NavigationItems.MENU, Menu.NONE, R.string.string_menu).setIcon(R.drawable.icon_android);
+//        menu.add(Menu.NONE, NavigationItems.NEWS, Menu.NONE, R.string.string_news).setIcon(R.drawable.icon_android);
+//    }
 
     public void setNavigationItemSelectedListener(OnNavigationItemSelectedListener listener) {
         onNavigationItemSelectedListener = listener;
@@ -48,18 +48,14 @@ public class BottomMenuHelper implements BottomNavigationView.OnNavigationItemSe
         Menu menu = bottomBar.getMenu();
 
         int tabId = 0;
-        if (navigationId == NavigationItems.SCORES)
-            tabId = R.id.nav_scores;
-        else if (navigationId == NavigationItems.LIVE)
-            tabId = R.id.nav_live;
-        else if (navigationId == NavigationItems.FAVORITES)
-            tabId = R.id.nav_favorites;
-        else if (navigationId == NavigationItems.MENU)
-            tabId = R.id.nav_menu;
-        else if (navigationId == NavigationItems.NEWS)
-            tabId = R.id.nav_news;
-//        else if (navigationId == NavigationItems.REFRESH)
-//            tabId = R.id.nav_refresh;
+
+        switch (navigationId) {
+            case NavigationItems.SCORES: tabId = R.id.nav_scores_soccer; break;
+            case NavigationItems.LIVE: tabId = R.id.nav_live_soccer; break;
+            case NavigationItems.FAVORITES: tabId = R.id.nav_favorites_soccer; break;
+            case NavigationItems.MENU: tabId = R.id.nav_menu_soccer; break;
+            case NavigationItems.NEWS: tabId = R.id.nav_news_soccer; break;
+        }
 
         for (int i = 0; i < menu.size(); i++) {
             MenuItem menuItem = menu.getItem(i);
@@ -68,7 +64,7 @@ public class BottomMenuHelper implements BottomNavigationView.OnNavigationItemSe
                 menuItem.setChecked(true);
             }
 
-            isFavoriteItemChecked = menuItem.getItemId() == R.id.nav_favorites;
+            isFavoriteItemChecked = menuItem.getItemId() == R.id.nav_favorites_soccer;
         }
     }
 
@@ -77,18 +73,14 @@ public class BottomMenuHelper implements BottomNavigationView.OnNavigationItemSe
         final int tabId = menuItem.getItemId();
 
         int navigationId = 0;
-        if (tabId == R.id.nav_scores)
-            navigationId = NavigationItems.SCORES;
-        else if (tabId == R.id.nav_live)
-            navigationId = NavigationItems.LIVE;
-        else if (tabId == R.id.nav_favorites)
-            navigationId = NavigationItems.FAVORITES;
-        else if (tabId == R.id.nav_menu)
-            navigationId = NavigationItems.MENU;
-        else if (tabId == R.id.nav_news)
-            navigationId = NavigationItems.NEWS;
-//        else if (tabId == R.id.nav_refresh)
-//            navigationId = NavigationItems.REFRESH;
+
+        switch (tabId) {
+            case R.id.nav_scores_soccer: navigationId = NavigationItems.SCORES; break;
+            case R.id.nav_live_soccer: navigationId = NavigationItems.LIVE; break;
+            case R.id.nav_favorites_soccer: navigationId = NavigationItems.FAVORITES; break;
+            case R.id.nav_menu_soccer: navigationId = NavigationItems.MENU; break;
+            case R.id.nav_news_soccer: navigationId = NavigationItems.NEWS; break;
+        }
 
         if (onNavigationItemSelectedListener != null && navigationId != 0)
             onNavigationItemSelectedListener.onNavigationItemSelected(navigationId);

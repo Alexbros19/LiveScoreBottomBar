@@ -6,4 +6,6 @@
     <string name="string_menu">Menu</string>
     <string name="string_news">News</string>
     <string name="string_refresh">Refresh</string>
+    <string name="string_soccer_live">Soccer Live</string>
+    <string name="string_soccer_scores">Soccer Scores</string>
 </resources>

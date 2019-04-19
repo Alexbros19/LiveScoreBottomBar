@@ -39,6 +39,6 @@
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/scores_navigation_menu" />
+        app:menu="@menu/soccer_navigation_menu" />
 
 </RelativeLayout>

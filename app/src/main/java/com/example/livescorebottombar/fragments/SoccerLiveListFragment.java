@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.livescorebottombar.R;
 
-public class LiveListFragment extends Fragment {
+public class SoccerLiveListFragment extends Fragment {
     private FragmentActivity activity;
 
     @Override
@@ -26,13 +26,13 @@ public class LiveListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_live_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_soccer_live_list, container, false);
 
-        Toolbar toolbar = rootView.findViewById(R.id.live_list_toolbar);
+        Toolbar toolbar = rootView.findViewById(R.id.soccer_live_toolbar);
 
         ((AppCompatActivity)activity).setSupportActionBar(toolbar);
 
-        toolbar.setTitle("Live");
+        toolbar.setTitle(R.string.string_soccer_live);
 
         return rootView;
     }

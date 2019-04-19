@@ -3,6 +3,8 @@ package com.example.livescorebottombar;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
     private Button showHockeyBottomBarButton;
     private boolean isBadgeVisible = false;
     private NavigationController navigationController;
+//    private int menuToChoose = R.menu.soccer_navigation_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
             @Override
             public void onClick(View v) {
                 if(isBadgeVisible) {
-                    BottomMenuHelper.removeBadge(bottomMenuView, R.id.nav_favorites);
+                    BottomMenuHelper.removeBadge(bottomMenuView, R.id.nav_favorites_soccer);
                     BottomMenuHelper.refreshBadgeView(isBadgeVisible, showBadgeButton);
                     isBadgeVisible = false;
                 } else {
-                    BottomMenuHelper.showBadge(getApplicationContext(), bottomMenuView, R.id.nav_favorites, "1");
+                    BottomMenuHelper.showBadge(getApplicationContext(), bottomMenuView, R.id.nav_favorites_soccer, "1");
                     BottomMenuHelper.refreshBadgeView(isBadgeVisible, showBadgeButton);
                     isBadgeVisible = true;
                 }
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
         showHockeyBottomBarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                menuToChoose = R.menu.hockey_navigation_menu;
+//                invalidateOptionsMenu();
             }
         });
 
@@ -62,6 +67,13 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
 //        navigationController.addRootItem(new TvScheduleNavigationItem(), NavigationItems.MENU);
 //        navigationController.addRootItem(new LeaguesNavigationItem(), NavigationItems.NEWS);
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(menuToChoose, menu);
+//        return true;
+//    }
 
     @Override
     protected void onResume() {
