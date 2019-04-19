@@ -1,8 +1,13 @@
 package com.example.livescorebottombar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.design.bottomnavigation.LabelVisibilityMode;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -14,6 +19,8 @@ import com.example.livescorebottombar.navigation.NavigationItems;
 import com.example.livescorebottombar.navigation.items.LiveNavigationItem;
 import com.example.livescorebottombar.navigation.items.ScoresNavigationItem;
 
+import java.lang.reflect.Field;
+
 public class MainActivity extends AppCompatActivity implements BottomMenuHelper.OnNavigationItemSelectedListener {
     public static int currentNavigationViewId = NavigationItems.SCORES;
     private BottomMenuHelper bottomMenuHelper = null;
@@ -21,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
     private Button showBadgeButton;
     private Button showHockeyBottomBarButton;
     private boolean isBadgeVisible = false;
+    private boolean isSoccerMenuVisible = true;
     private NavigationController navigationController;
 //    private int menuToChoose = R.menu.soccer_navigation_menu;
 
@@ -54,8 +62,17 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
         showHockeyBottomBarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                menuToChoose = R.menu.hockey_navigation_menu;
-//                invalidateOptionsMenu();
+                if(isSoccerMenuVisible) {
+                    bottomMenuView.getMenu().clear();
+                    bottomMenuView.inflateMenu(R.menu.hockey_navigation_menu);
+                    showHockeyBottomBarButton.setText("Show soccer");
+                    isSoccerMenuVisible = false;
+                } else {
+                    bottomMenuView.getMenu().clear();
+                    bottomMenuView.inflateMenu(R.menu.soccer_navigation_menu);
+                    showHockeyBottomBarButton.setText("Show hockey");
+                    isSoccerMenuVisible = true;
+                }
             }
         });
 
@@ -67,13 +84,6 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
 //        navigationController.addRootItem(new TvScheduleNavigationItem(), NavigationItems.MENU);
 //        navigationController.addRootItem(new LeaguesNavigationItem(), NavigationItems.NEWS);
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(menuToChoose, menu);
-//        return true;
-//    }
 
     @Override
     protected void onResume() {
@@ -95,4 +105,26 @@ public class MainActivity extends AppCompatActivity implements BottomMenuHelper.
             e.printStackTrace();
         }
     }
+
+//    public static void disableShiftMode(BottomNavigationView view) {
+//        BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
+//        try {
+//            Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
+//            shiftingMode.setAccessible(true);
+//            shiftingMode.setBoolean(menuView, false);
+//            shiftingMode.setAccessible(false);
+//            for (int i = 0; i < menuView.getChildCount(); i++) {
+//                BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
+//                //noinspection RestrictedApi
+//                item.setShiftingMode(false);
+//                // set once again checked value, so view will be updated
+//                //noinspection RestrictedApi
+//                item.setChecked(item.getItemData().isChecked());
+//            }
+//        } catch (NoSuchFieldException e) {
+//            Log.e("BNVHelper", "Unable to get shift mode field", e);
+//        } catch (IllegalAccessException e) {
+//            Log.e("BNVHelper", "Unable to change value of shift mode", e);
+//        }
+//    }
 }
